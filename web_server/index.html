@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Parking Dashboard</title>
+  <link rel="stylesheet" href="styles.css" /> <!-- Corrected file name -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🅿️ Smart Parking Dashboard</h1>
+      <p>Real-time status via MQTT (3 slots)</p>
+    </header>
+
+    <section class="status-card">
+      <div id="mqtt-status" class="status disconnected">
+        <span class="dot"></span>
+        <span id="mqtt-status-text">MQTT: Connecting...</span>
+      </div>
+      <div class="small">
+        Broker: <span id="broker-label"></span> • Topic: <code>parking/#</code>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="slot-card" id="slot1-card">
+        <div class="slot-title">Slot 1</div>
+        <div class="slot-state unknown" id="slot1-state">UNKNOWN</div>
+        <div class="slot-topic">parking/slot1</div>
+      </div>
+
+      <div class="slot-card" id="slot2-card">
+        <div class="slot-title">Slot 2</div>
+        <div class="slot-state unknown" id="slot2-state">UNKNOWN</div>
+        <div class="slot-topic">parking/slot2</div>
+      </div>
+
+      <div class="slot-card" id="slot3-card">
+        <div class="slot-title">Slot 3</div>
+        <div class="slot-state unknown" id="slot3-state">UNKNOWN</div>
+        <div class="slot-topic">parking/slot3</div>
+      </div>
+    </section>
+
+    <section class="log-card">
+      <div class="log-header">
+        <h2>📋 Live Log</h2>
+        <button id="clear-log" class="btn">Clear</button>
+      </div>
+      <div id="log"></div>
+    </section>
+
+    <footer class="footer">
+      Tip: Your broker must expose <strong>WebSockets</strong> (often port <strong>9001</strong> on Mosquitto).
+    </footer>
+  </div>
+
+  <script src="script.js"></script> <!-- Corrected file name -->
+</body>
+</html>
