@@ -188,12 +188,14 @@ parking/slot1 → AVAILABLE
 ## Folder Structure
 
 ```
-SmartParking/
+Real-Time-Smart-Parking-System/
 │
-├── ir_sensor.ino
-├── index.html
-├── styles.css
-├── script.js
+├── ir_sensor/
+│   └── ir_sensor.ino
+├── web_server/
+│   ├── index.html
+│   ├── script.js
+│   └── styles.css
 └── README.md
 ```
 
